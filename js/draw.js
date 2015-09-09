@@ -1,6 +1,15 @@
+// This is a variable we can use to keep track of running animations.
+// We can use it to stop animations by checking that it's true before every frame.
+var runningAnimation = false;
+
 // This function clears the entire canvas, useful in animation.
-function clear() {
-    canvas.clearRect(0, 0, canvas.width, canvas.height);
+function clear(continue_animation) {
+    if(runningAnimation && !continue_animation) {
+        runningAnimation = false;
+        window.requestAnimationFrame(clear);
+    } else {
+        canvas.clearRect(0, 0, canvas.width, canvas.height);
+    }
 }
 
 // Draws a square with its center at the point (midx, midy)
@@ -67,6 +76,8 @@ function animateProgressBar(duration) {
     var start = null;
 
     function drawFrame(timestamp) {
+        clear(true);
+
         if (start == null) {
             start = timestamp;
         }
@@ -75,7 +86,7 @@ function animateProgressBar(duration) {
         canvas.moveTo(0, canvas.height / 2);
         canvas.lineTo(canvas.width * progress / duration, canvas.height / 2);
         canvas.stroke();
-        if (progress < duration) {
+        if (runningAnimation && progress < duration) {
             // You tell window.requestAnimationFrame what to do once the browser is ready to draw another frame
             // You might be tempted to do an infinite-while loop, but that's not how you do these things in JavaScript (anymore...).
             // If you do, you might end up with your page freezing or just being really slow.
@@ -84,10 +95,59 @@ function animateProgressBar(duration) {
         }
     }
 
+    runningAnimation = true;
     window.requestAnimationFrame(drawFrame);
 }
 
-// This variable stores the timestamp of the last drawed frame, used when calculating frames per second.
+function animateSpinningArcs() {
+    // This code was based on this jsfiddle: https://jsfiddle.net/gg19b2do/4/
+    // It has been modified some to have improved performance.
+    var pos = 0;
+    var pinc = 0.01;
+
+    // We don't want to mess up the previous line width, so we save it here and
+    // restore it at the end of every frame.
+    var prevLineWidth = canvas.lineWidth;
+
+    var speed = 0.1;        // Change this to modify spin-speed
+    var arcs = 20;          // Change this to modify the number of arcs
+    var arc_distance = 10;  // Change this to modify the distance between the arcs
+
+    function drawFrame() {
+        clear(true);
+
+        for(var x=0; x < arcs; x++){
+            var r = x*arc_distance + 4;
+            var st = ((pos * (x+1)) % 200) / 100;
+            var et = (st + 1) % 2;
+
+            canvas.beginPath();
+            canvas.lineWidth = 8;
+            canvas.arc(canvas.width/2, canvas.height/2, r, et * Math.PI , st * Math.PI);
+            canvas.stroke();
+
+            pos = (pos + pinc) % 200;
+        }
+
+        pinc = speed * ((100-(Math.abs(100-pos)))/100);
+        if (pinc < 0.01) {
+            pinc = 0.01;
+        }
+
+        // Here the previous line width is restored.
+        canvas.lineWidth = prevLineWidth;
+        
+        if(runningAnimation) {
+            window.requestAnimationFrame(drawFrame);
+        }
+    }
+
+    runningAnimation = true;
+    window.requestAnimationFrame(drawFrame);
+}
+
+// This variable stores the timestamp of the last drawed frame,
+// used when calculating frames per second.
 var lastTimestamp = new Date().getTime();
 
 function drawFPSCounter(timestamp) {

@@ -23,6 +23,11 @@ $(document).ready(function() {
         animateProgressBar(2000);
     });
 
+    $('button#spinningArcs').click(function () {
+        clear();
+        animateSpinningArcs();
+    });
+
     $('button#yourOwnFunction').click(function () {
         clear();
         yourOwnFunction();
