@@ -1,0 +1,23 @@
+html, body {
+    margin-top: 0px;
+}
+
+.row {
+    clear: both;
+}
+
+.box {
+    background-color: #EEE;
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 10px 10px 0;
+}
+
+.pull-left {
+    float: left;
+}
+
+#fullcanvas {
+    border: 1px solid #000;
+}
