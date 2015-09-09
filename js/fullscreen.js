@@ -3,21 +3,6 @@
 // This file is used by the fullscreen.html file, and will not be loaded in the index.html file.
 
 $(document).ready(function() {
-    // This variable stores the timestamp of the last drawed frame, used when calculating frames per second.
-    var lastTimestamp = new Date().getTime();
-
-    function drawFPSCounter(timestamp) {
-        // Calculates the number of frames per second
-        var fps = Math.round(10000 / (timestamp - lastTimestamp)) / 10;
-
-        // Here we can set the font we want to use when drawing text
-        canvas.font = "20px Arial";
-        canvas.fillText("FPS: " + fps, 10, 25);
-
-        // Store the timestamp from this frame to use when calculating the next frame.
-        lastTimestamp = timestamp;
-    }
-
     function renderFrame(timestamp) {
         // Write your code in here!
         // It will run every time a new frame is drawn
