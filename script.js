@@ -94,7 +94,7 @@ function animateProgressBar(duration) {
         }
     }
 
-    drawFrame();
+    window.requestAnimationFrame(drawFrame);
 }
 
 function yourOwnFunction() {
