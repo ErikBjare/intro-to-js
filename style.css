@@ -1,5 +1,5 @@
 html, body {
-    margin-top: 0px;
+    margin: 0px;
 }
 
 .row {
@@ -14,10 +14,27 @@ html, body {
     margin: 10px 10px 10px 0;
 }
 
+.noborder {
+    border: 0px !important;
+}
+
 .pull-left {
     float: left;
 }
 
-#fullcanvas {
+#canvas {
     border: 1px solid #000;
+}
+
+.fullscreen {
+    overflow: hidden;
+}
+
+.fullscreen > #canvas {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -4px;
+    cursor: crosshair;
 }
