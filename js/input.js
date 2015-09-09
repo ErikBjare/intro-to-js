@@ -12,13 +12,6 @@ $(document).ready(function() {
         console.log(event);
     }
 
-    // Add event listener for `click` events.
-    canvasElement.addEventListener('click', onMouseClick, false);
-    canvasElement.addEventListener('contextmenu', onMouseClick, false);
-
-    // This prevents the right-click menu (the "contextmenu") from opening when rightclicking on the canvas.
-    canvasElement.oncontextmenu = function() { return false; }
-
     // Here you can run code when certain keys are pressed
     // I've set up so you can easily write code for the four arrow keys.
     // If you want to use another key you can look up which keycode it has by clicking
@@ -40,4 +33,12 @@ $(document).ready(function() {
 
         event.preventDefault();
     });
+
+    // Add event listener for `click` events.
+    canvasElement.addEventListener('click', onMouseClick, false);
+    canvasElement.addEventListener('contextmenu', onMouseClick, false);
+
+    // This prevents the right-click menu (the "contextmenu") from opening when rightclicking on the canvas.
+    canvasElement.oncontextmenu = function() { return false; }
+
 });

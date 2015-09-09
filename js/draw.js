@@ -11,11 +11,9 @@ function drawSquare(midx, midy) {
     drawRectangle(midx - unit/2, midy - unit/2, unit, unit);
 }
 
+// Draws a rectangle with it's upper left corner at (x, y) with the given width and height.
+// If you think the lineTo arguments look funky, try drawing the points on paper.
 function drawRectangle(x, y, width, height) {
-    var x = Math.round(x);
-    var y = Math.round(y);
-    var width = Math.round(width);
-    var height = Math.round(height);
     canvas.beginPath();
     canvas.moveTo(x, y);  // Moves a "pencil" without creating a line
     canvas.lineTo(x + width, y);  // Moves a pencil, creating a line
@@ -25,7 +23,9 @@ function drawRectangle(x, y, width, height) {
     canvas.stroke();  // Takes all the lines that have been made and draws them, without this nothing will be shown.
 }
 
-// Draws a circle using trigonometry, try making it draw a hexagon, pentagon or even a simple square instead!
+// Draws a circle using some trigonometic functions.
+// Try making it draw a hexagon, pentagon or even a simple square or triangle instead!
+// Hint: Change the resolution attribute to something low.
 function drawCircle(midx, midy) {
     var angle = 0;  // Starting angle
     var radius = canvas.width / 4;
@@ -61,7 +61,6 @@ function drawLightning() {
     }
     canvas.stroke();
 }
-
 
 // This function animates a progress bar that till complete in a duration given in milliseconds.
 function animateProgressBar(duration) {

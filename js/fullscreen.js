@@ -1,8 +1,6 @@
 // Welcome to the fullscreen.js file!
 // Here you will discover a few new features, such as fullscreen canvas and a render-loop.
 // This file is used by the fullscreen.html file, and will not be loaded in the index.html file.
-// However, the fullscreen.html file ALSO loads script.js, so if you want to change something that
-// we did there (such as mouse and keyboard input) you'll have to do it in there.
 
 $(document).ready(function() {
     // This variable stores the timestamp of the last drawed frame, used when calculating frames per second.

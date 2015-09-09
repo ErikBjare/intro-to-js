@@ -1,5 +1,5 @@
 function yourOwnFunction() {
-    // Write your own code here!
+    // Write your own code here and run it with the "Your Own Function" button!
 }
 
 $(document).ready(function() {
