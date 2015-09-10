@@ -3,6 +3,9 @@
 // This file is used by the fullscreen.html file, and will not be loaded in the index.html file.
 
 $(document).ready(function() {
+    var i = 0;
+    var steps = 20;
+
     function renderFrame(timestamp) {
         // Write your code in here!
         // It will run every time a new frame is drawn
@@ -10,9 +13,11 @@ $(document).ready(function() {
         // draw upon each other, creating a beautiful (or not) mess.
         clear();
 
-        for(var i=0; i<20; i++) {
-            drawRectangle(canvas.width/2 - 200 + i*10, canvas.height/2 - 200 + i*10, 200, 200);
+        for(var j=0; j<10; j++) {
+            offset = 10*((j + i) % steps)
+            drawRectangle(canvas.width/2 - 200 + offset, canvas.height/2 - 200 + offset, 200, 200);
         }
+        i = (i + 0.1) % 20;
 
         drawFPSCounter(timestamp);
 
