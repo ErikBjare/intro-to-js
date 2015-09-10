@@ -20,5 +20,7 @@ And here are a few things already made:
  - [Badass animation](https://jsfiddle.net/gg19b2do/4/)
  - [A Game of Life implementation using canvas by me](http://erik.bjareholt.com/GameOfLife/)
 
+![JavaScript Illustrated](http://i.imgur.com/23mGq6v.jpg)
+
 Licensed under the [MIT License](http://opensource.org/licenses/MIT)
 (tl;dr You can do anything with it, but must give credit if it's a derivative work)
