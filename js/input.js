@@ -26,6 +26,17 @@ $(document).ready(function() {
             console.log("Right arrow key pressed")
         } else if (keycode == 40) {
             console.log("Down arrow key pressed")
+        } else if(keycode == 122 || keycode == 123) {
+            // We want to be able to open tools developer and fullscreen mode
+            // with F12, so we make sure that event.preventDefault() doesn't run
+            // if we press it.
+            console.log("F11 or F12 key pressed")
+            return;
+        } else if(keycode == 82) {
+            // We want to be able to reload the page with Ctrl + R,
+            // so the same as the F11 and F12 keys apply here.
+            console.log("R key pressed");
+            return;
         }
 
         console.log("Key with code " + keycode + " pressed");
