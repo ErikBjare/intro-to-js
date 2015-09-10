@@ -3,6 +3,9 @@
 // This file is used by the fullscreen.html file, and will not be loaded in the index.html file.
 
 $(document).ready(function() {
+    var i = 0;
+    var speed = 0.1;
+
     function renderFrame(timestamp) {
         // Write your code in here!
         // It will run every time a new frame is drawn
@@ -10,9 +13,50 @@ $(document).ready(function() {
         // draw upon each other, creating a beautiful (or not) mess.
         clear();
 
-        for(var i=0; i<20; i++) {
-            drawRectangle(canvas.width/2 - 200 + i*10, canvas.height/2 - 200 + i*10, 200, 200);
+        drawSquare(100 + 10*i, 100, 250, 250)
+
+        xcur = canvas.width / 2;
+        ycur = canvas.height / 2;
+        canvas.beginPath();
+        canvas.moveTo(xcur, ycur)
+        if(0 < i) {
+            xcur += 10*Math.min(i, 10);
+            ycur += 10*Math.min(i, 10);
+            canvas.lineTo(xcur, ycur);
         }
+        if(10 < i) {
+            var res = 10;
+            var maxsteps = 20;
+            var steps = Math.min(i - 10, maxsteps);
+            var angle = -Math.PI/4;
+            for(var j=0; j<steps; j++) {
+                xcur += 17*Math.cos(angle);
+                ycur -= 17*Math.sin(angle);
+                angle += Math.PI / maxsteps * 1.5;
+                canvas.lineTo(xcur, ycur);
+            }
+        }
+        if(30 < i) {
+            xcur -= 10*Math.min(i - 30, 10);
+            ycur += 10*Math.min(i - 30, 10);
+            canvas.lineTo(xcur, ycur);
+        }
+        if(40 < i) {
+            var res = 10;
+            var maxsteps = 20;
+            var steps = Math.min(i - 40, maxsteps);
+            var angle = -Math.PI/4;
+            for(var j=0; j<steps; j++) {
+                xcur -= 17*Math.cos(angle);
+                ycur -= 17*Math.sin(angle);
+                angle += Math.PI / maxsteps * 1.5;
+                canvas.lineTo(xcur, ycur);
+            }
+        }
+
+        canvas.stroke();
+
+        i = (i + speed) % 70;
 
         drawFPSCounter(timestamp);
 
