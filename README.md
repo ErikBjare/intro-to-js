@@ -7,6 +7,8 @@ There will also be a simpler jsfiddle, because everyone might not be familiar wi
 
 Try making a game, some cool geometry or whatever brilliant idea your imagination comes up with!
 
+**If you are already somewhat familiar with JS, or can infer how it works, check out [this cheat-sheet](http://cheatsheetworld.com/programming/html5-canvas-cheat-sheet/).**
+
 Here are a few learning resources:
  - [HTML5 Canvas Tutorials](http://www.html5canvastutorials.com/)
  - [A reference of all methods available on the context/'canvas' variable](http://www.w3schools.com/tags/ref_canvas.asp)
@@ -18,9 +20,11 @@ And here is a list of cool things you can try to make:
 
 And here are a few things already made:
  - [Badass animation](https://jsfiddle.net/gg19b2do/4/)
- - [A Game of Life implementation using canvas by me](http://erik.bjareholt.com/GameOfLife/)
+ - [A Game of Life implementation using canvas](http://erik.bjareholt.com/GameOfLife/)
 
 ![JavaScript Illustrated](http://i.imgur.com/23mGq6v.jpg)
 
-Licensed under the [MIT License](http://opensource.org/licenses/MIT)
+---------------
+
+Licensed under the [MIT License](http://opensource.org/licenses/MIT).
 (tl;dr You can do anything with it, but must give credit if it's a derivative work)
